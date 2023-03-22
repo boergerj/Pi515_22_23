@@ -10,4 +10,34 @@
 #  inside your contactList object
 # 6. Run your instance method printList()
 
-from Exercise_1 import contact
+
+class contact:
+  isBlocked = False
+
+  def __init__(self,first,last,phonenum):
+    self.firstname = first
+    self.lastname = last
+    self.phone = phonenum
+  
+  def toggleBlocked(self):
+    if self.isBlocked:
+      self.isBlocked = False
+    else:
+      self.isBlocked = True
+
+class contactList:
+  def __init__(self):
+    self.list = []
+
+  def printList(self):
+    for i in self.list:
+      print(i.firstname,i.lastName)
+  
+jordan = contact("Jordan","Boerger","123")
+
+matt = contact("Matt","O","456")
+
+addressBook = contactList()
+addressBook.list.append(jordan)
+addressBook.list.append(matt)
+addressBook.printList()
