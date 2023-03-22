@@ -2,6 +2,7 @@ from reader import Reader
 
 
 class Calculator:
+  """A simple integer calculator."""
 
   def __init__(self):
     self.reader = Reader()
@@ -16,7 +17,7 @@ class Calculator:
   # just to make patching easier
   def get_input(self, prompt):
     return input(prompt)
-  
+
   def add(self, x, y):
     return x + y
 
@@ -32,7 +33,9 @@ class Calculator:
   def power(self, x, y):
     """return x to the power of y"""
     if y == 1: return x
-    else: return x * self.power(x, y - 1)
+    else:
+      result = x * self.power(x, y - 1)
+      return result
 
   def loop(self):
     while True:
@@ -47,7 +50,7 @@ class Calculator:
         print(f"{cmdString} is not recognized")
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
   cal = Calculator()
   print("3 + 4 = ", cal.add(3, 4))
   print("3 - 4 = ", cal.sub(3, 4))
