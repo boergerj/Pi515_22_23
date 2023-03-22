@@ -22,8 +22,23 @@ class TestCalculator(unittest.TestCase):
     # alternative assertion
     self.assertEqual(3, self.cal.sub(4, 1))
 
+  def test_mul(self):
+    # common pattern:
+    # Arrange-Act-Assert
+    num1 = 3
+    num2 = 4
+    expected = num1 * num2
+
+    actual = self.cal.mul(num1, num2)
+
+    self.assertEqual(expected, actual)
+
   def test_power(self):
     self.assertEqual(8, self.cal.power(2, 3))
+
+  # check for exceptions; note the div call is passed as a callable
+  def test_divided_by_zero(self):
+    self.assertRaises(ZeroDivisionError, self.cal.div, 1, 0)
 
   # loop requires user input
   @patch("calculator.Calculator.get_input", return_value="quit")
