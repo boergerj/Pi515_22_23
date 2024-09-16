@@ -29,7 +29,7 @@ class Reader:
 
 
 if __name__ == '__main__':
-  p = Reader()
-  print(p.read("3+5"))
-  print(p.read("3 - 5"))
-  print(p.read("quit"))
+  r = Reader()
+  print(r.read("3+5"))
+  print(r.read("3 - 5"))
+  print(r.read("quit"))
